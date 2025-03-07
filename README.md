@@ -53,7 +53,7 @@ The **forwarder** will then pass the request to the **authoritative server**, if
 ## Getting Started 🛠️
 Fetch the code from the repository and enter the folder.
 ```bash
-git clone https://github.com/noxPHX/Power-Hole.git && cd Power-Hole
+git clone https://github.com/TimyStream/Power-Hole.git && cd Power-Hole
 ```
 
 ### Secrets
@@ -142,4 +142,4 @@ This repository is to fulfill my personal's needs and major changes from pull re
 However, if you ever find an issue please feel free to report it and I will be glad to solve it.  
 
 ## Licence 📃
-[GPL-3.0](https://github.com/noxPHX/Power-Hole/blob/main/LICENSE)
+[GPL-3.0](https://github.com/TimyStream/Power-Hole/blob/main/LICENSE)
