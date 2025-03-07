@@ -6,7 +6,7 @@ RUN apt-get update && \
     gnupg \
     dnsutils
 
-RUN apt-get -y --no-install-recommends install pdns-server pdns-backend-pgsql && \
+RUN apt-get -y --no-install-recommends install pdns-server pdns-backend-mysql && \
     rm -rf /var/lib/apt/lists/*
 
 COPY pdns.conf /etc/powerdns/pdns.d/pdns.conf
