@@ -22,7 +22,7 @@ fi
 cd "$this_script_path" || exit 1
 
 # Authoritative server's populating script
-wget -qO authoritative/init.sql https://raw.githubusercontent.com/PowerDNS/pdns/rel/auth-4.4.x/modules/gpgsqlbackend/schema.pgsql.sql
+wget -qO authoritative/init.sql https://raw.githubusercontent.com/PowerDNS/pdns/refs/heads/rel/auth-4.4.x/modules/gmysqlbackend/schema.mysql.sql
 
 # Compose does not allow yet BuildKit secrets
 docker build --secret id=db_password,src=secrets/db_password.txt --secret id=api_key,src=secrets/api_key.txt -t powerhole:authoritative authoritative

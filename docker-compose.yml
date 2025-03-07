@@ -1,7 +1,7 @@
 services:
 
   powerhole-pdns-auth-db:
-    image: postgres:13
+    image: mariadb:lts
     container_name: powerhole-pdns-auth-db
     hostname: powerhole-pdns-auth-db
     restart: always
@@ -9,20 +9,16 @@ services:
     networks:
       - powerhole-pdns-auth-db
     environment:
-      POSTGRES_DB: powerhole
-      POSTGRES_USER: powerhole
-      POSTGRES_PASSWORD_FILE: /run/secrets/db_passwd
+      MARIADB_DATABASE: powerhole
+      MARIADB_USER: powerhole
+      MARIADB_PASSWORD_FILE: /run/secrets/db_passwd
+      MARIADB_ROOT_PASSWORD_FILE: /run/secrets/db_passwd
     volumes:
-      - db_auth:/var/lib/postgresql/data
+      - db_auth:/var/lib/mysql:Z
       - ./authoritative/init.sql:/docker-entrypoint-initdb.d/init.sql
     secrets:
       - db_passwd
     user: postgres:postgres
-    healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -U pdns" ]
-      interval: 10s
-      timeout: 5s
-      retries: 10
     cap_drop:
       - ALL
     security_opt:
