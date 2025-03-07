@@ -18,7 +18,6 @@ services:
       - ./authoritative/init.sql:/docker-entrypoint-initdb.d/init.sql
     secrets:
       - db_passwd
-    user: postgres:postgres
     cap_drop:
       - ALL
     security_opt:
