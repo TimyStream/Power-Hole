@@ -22,6 +22,7 @@ services:
       interval: 10s
       timeout: 5s
       retries: 3
+    user: mysql:mysql
     secrets:
       - db_passwd
     cap_drop:
