@@ -16,6 +16,12 @@ services:
     volumes:
       - db_auth:/var/lib/mysql:Z
       - ./authoritative/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      start_period: 10s
+      interval: 10s
+      timeout: 5s
+      retries: 3
     secrets:
       - db_passwd
     cap_drop:
